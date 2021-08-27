@@ -1,6 +1,6 @@
 # useRespo
 
-## a usefull react hook for build responsive web pages
+## a useful react hook for building responsive web pages
 
 it's fast & it's very easy to use :))
 
