@@ -1,24 +1,24 @@
 # useRespo
 
-## a useful react hook for building responsive web pages
+## A useful react hook for building responsive web pages
 
-it's fast & it's very easy to use :))
+It's fast & it's very easy to use :))
 
 # How to use ?
 
-first , install it :
+First , install it :
 
 ```bash
 yarn install use-respo
 ```
 
-or if you prefer npm :
+Or if you prefer npm :
 
 ```bash
 npm i use-respo
 ```
 
-then use it like a charm :
+Then use it like a charm :
 
 ```js
 import React from 'react';
@@ -40,9 +40,9 @@ const App = () => {
 export default App;
 ```
 
-> use "up" or "down" attributes to show content in larger or smaller size than the device you choose
+> Use "up" or "down" attributes to show content in a larger or smaller size than the device you choose
 
-you can use below components like the example above
+You can use below components like the example above
 
 -   Tiny
 -   Mobile
@@ -50,9 +50,9 @@ you can use below components like the example above
 -   Laptop
 -   Tv
 
-# ide suggestion
+# Ide suggestion
 
-use ide suggestion for faster development
+Use ide suggestion for faster development
 
 ![hello](https://github.com/mrdexign/use-respo/blob/main/images/1.png)
 
@@ -60,21 +60,21 @@ use ide suggestion for faster development
 
 # Customization
 
-## breakpoints
+## Breakpoints
 
-default break point sizes is :
+Default break point sizes are :
 
 ```js
 { xs: 0, sm: 410, md: 960, lg: 1280, xl: 1800 }
 ```
 
-you can define your custom sizes like this:
+You can define your custom sizes like this:
 
 ```js
 const { Laptop } = useRespo({ xs: 0, sm: 480, md: 790, lg: 1100, xl: 1900 });
 ```
 
-or create your custom hook like this :
+Or create your custom hook like this :
 
 ```js
 const myCustomBreakPoints = { xs: 0, sm: 480, md: 790, lg: 1100, xl: 1900 };
@@ -86,7 +86,7 @@ const { Laptop } = useCustomRespo();
 
 ## onDown & onUp callbacks
 
-call your custom function if the device breakpoint , breaks
+Call your custom function if the device breakpoint breaks
 
 ```js
 <Laptop
