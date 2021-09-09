@@ -9,13 +9,13 @@ var useWindowSize_1 = __importDefault(require("./useWindowSize"));
 var breakpoint = { xs: 0, sm: 410, md: 960, lg: 1280, xl: 1800 };
 var getDeviceConfig = function (width, br) {
     if (br === void 0) { br = breakpoint; }
-    if (width < br.sm)
+    if (width < br.xs)
         return 'xs';
-    if (br.sm <= width && width < br.md)
+    if (br.xs <= width && width < br.sm)
         return 'sm';
-    if (br.md <= width && width < br.lg)
+    if (br.sm <= width && width < br.md)
         return 'md';
-    if (br.lg <= width && width < br.xl)
+    if (br.md <= width && width < br.lg)
         return 'lg';
     return 'xl';
 };

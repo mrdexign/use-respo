@@ -8,10 +8,10 @@ const breakpoint: BreakPoint = { xs: 0, sm: 410, md: 960, lg: 1280, xl: 1800 };
 export type RespoComponent = FC<{ down?: boolean; up?: boolean; onDown?: Function; onUp?: Function }>;
 
 const getDeviceConfig = (width: number, br: BreakPoint = breakpoint): Config => {
-	if (width < br.sm) return 'xs';
-	if (br.sm <= width && width < br.md) return 'sm';
-	if (br.md <= width && width < br.lg) return 'md';
-	if (br.lg <= width && width < br.xl) return 'lg';
+	if (width < br.xs) return 'xs';
+	if (br.xs <= width && width < br.sm) return 'sm';
+	if (br.sm <= width && width < br.md) return 'md';
+	if (br.md <= width && width < br.lg) return 'lg';
 	return 'xl';
 };
 
