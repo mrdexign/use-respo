@@ -3,9 +3,14 @@ import useWindowSize from './useWindowSize';
 
 type Config = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type BreakPoint = { xs: number; sm: number; md: number; lg: number; xl: number };
-const breakpoint: BreakPoint = { xs: 0, sm: 410, md: 960, lg: 1280, xl: 1800 };
+const breakpoint: BreakPoint = { xs: 280, sm: 576, md: 992, lg: 1400, xl: 1800 };
 
-export type RespoComponent = FC<{ down?: boolean; up?: boolean; onDown?: Function; onUp?: Function }>;
+export type RespoComponent = FC<{
+	down?: boolean;
+	up?: boolean;
+	onDown?: Function;
+	onUp?: Function;
+}>;
 
 const getDeviceConfig = (width: number, br: BreakPoint = breakpoint): Config => {
 	if (width < br.xs) return 'xs';
@@ -21,13 +26,17 @@ const useRespo = (breakPoint: BreakPoint = breakpoint) => {
 
 	const Device: (brk: Config) => RespoComponent =
 		brk =>
-		({ children, down, up, onDown, onUp }) =>
-			(
-				<Fragment>
-					{((down && width < breakpoint[brk] && onDown?.()) || (up && width > breakpoint[brk] && onUp?.()) || brkPnt === brk) &&
-						children}
-				</Fragment>
-			);
+		({ children, down, up, onDown, onUp }) => {
+			const isIn = brkPnt === brk;
+			const isDown = width < breakpoint[brk];
+			const isUp = width > breakpoint[brk];
+			const condition = (down && isDown) || (up && isUp) || isIn;
+
+			isUp && onUp?.();
+			isDown && onDown?.();
+
+			return <Fragment>{condition && children}</Fragment>;
+		};
 
 	return {
 		Tiny: Device('xs'),
